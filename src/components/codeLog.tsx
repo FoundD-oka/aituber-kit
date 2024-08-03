@@ -31,7 +31,7 @@ export const CodeLog = ({ messages }: Props) => {
               const nextRole = i < messages.length - 1 ? messages[i + 1].role : "";
               return (
                 <div key={i} ref={messages.length - 1 === i ? chatScrollRef : null}>
-                  <Chat role={msg.role} message={msg.content} prevRole={prevRole} nextRole={nextRole} />
+                  <Chat role={msg.role} message={typeof msg.content === 'string' ? msg.content : JSON.stringify(msg.content)} prevRole={prevRole} nextRole={nextRole} />
                 </div>
               );
             })}
